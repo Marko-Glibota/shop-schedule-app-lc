@@ -1,1 +1,7 @@
 <h1>Tous les magasins (<%= @shops.count%>)</h1>
+
+  <% @shops.each do |shop| %>
+    <%= link_to shop_path(shop) do %>
+        <li><%= shop.name.capitalize %></li>
+    <% end %>
+  <% end %>
