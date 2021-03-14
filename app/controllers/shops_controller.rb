@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: :show
+  include SortingSchedulesConcern
 
   def index
     @shops = Shop.all
@@ -7,6 +8,8 @@ class ShopsController < ApplicationController
 
   def show
     @schedules = Schedule.where(shop: @shop)
+    @today = @schedules.select { |schedule| schedule.weekday == Time.now.wday }
+    @sorted_schedules = sorted_schedules(@today[0])
   end
 
   private

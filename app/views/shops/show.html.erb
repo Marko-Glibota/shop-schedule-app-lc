@@ -1,5 +1,14 @@
 <h1><%= @shop.name.capitalize %></h1>
 
-<% @schedules.each do |schedule| %>
-  <li><%= format_weekday_fr(schedule.weekday) %></li>
-<% end %>
+  <h3>Horaires</h3>
+  <% @sorted_schedules.each do |schedule| %>
+    <% if closed?(schedule) %>
+      <p><%= "#{format_weekday_fr(schedule.weekday)} : Fermé" %></p>
+    <% elsif open_non_stop?(schedule) %>
+      <p><%= "#{format_weekday_fr(schedule.weekday)} : #{format_schedule(schedule.morning_opening_hour, schedule.afternoon_closing_hour)}" %></p>
+    <% else %>
+      <p><%= "#{format_weekday_fr(schedule.weekday)} :
+      #{format_schedule(schedule.morning_opening_hour, schedule.morning_closing_hour)},
+      #{format_schedule(schedule.afternoon_opening_hour, schedule.afternoon_closing_hour)}" %></p>
+    <% end %>
+  <% end %>
