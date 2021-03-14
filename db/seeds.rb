@@ -39,24 +39,24 @@ puts 'Creating 10 shops...'
     puts 'Schedule created successfully.'
   end
   schedule = Schedule.new(
-      weekday: 6,
-      morning_opening_hour: morning_opening_hours.sample,
-      morning_closing_hour: nil,
-      afternoon_opening_hour: nil,
-      afternoon_closing_hour: afternoon_closing_hours.sample,
-      shop: shop
-    )
-    schedule.save!
-    puts 'Saturday schedule created.'
+    weekday: 6,
+    morning_opening_hour: morning_opening_hours.sample,
+    morning_closing_hour: nil,
+    afternoon_opening_hour: nil,
+    afternoon_closing_hour: afternoon_closing_hours.sample,
+    shop: shop
+  )
+  schedule.save!
+  puts 'Saturday schedule created.'
 
   schedule = Schedule.new(
-      weekday: 0,
-      morning_opening_hour: nil,
-      morning_closing_hour: nil,
-      afternoon_opening_hour: nil,
-      afternoon_closing_hour: nil,
-      shop: shop
-    )
-    schedule.save!
-    puts 'Sunday schedule created.'
+    weekday: 0,
+    morning_opening_hour: nil,
+    morning_closing_hour: nil,
+    afternoon_opening_hour: nil,
+    afternoon_closing_hour: nil,
+    shop: shop
+  )
+  schedule.save!
+  puts 'Sunday schedule created.'
 end

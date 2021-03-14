@@ -18,4 +18,3 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 end
-

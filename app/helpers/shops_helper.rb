@@ -1,24 +1,24 @@
 module ShopsHelper
   def format_weekday_fr(int)
     if int == 0
-      "Dimanche"
+      'Dimanche'
     elsif int == 1
-      "Lundi"
+      'Lundi'
     elsif int == 2
-      "Mardi"
+      'Mardi'
     elsif int == 3
-      "Mercredi"
+      'Mercredi'
     elsif int == 4
-      "Jeudi"
+      'Jeudi'
     elsif int == 5
-      "Vendredi"
+      'Vendredi'
     else
-      "Samedi"
+      'Samedi'
     end
   end
 
   def format_hour(time)
-    time.strftime("%H:%M")
+    time.strftime('%H:%M')
   end
 
   def format_schedule(opening, closing)
@@ -26,10 +26,10 @@ module ShopsHelper
   end
 
   def closed?(schedule)
-    schedule.morning_opening_hour == nil && schedule.morning_closing_hour == nil && schedule.afternoon_opening_hour == nil && schedule.afternoon_closing_hour == nil
+    schedule.morning_opening_hour.nil? && schedule.morning_closing_hour.nil? && schedule.afternoon_opening_hour.nil? && schedule.afternoon_closing_hour.nil?
   end
 
   def open_non_stop?(schedule)
-    schedule.morning_closing_hour == nil && schedule.afternoon_opening_hour == nil
+    schedule.morning_closing_hour.nil? && schedule.afternoon_opening_hour.nil?
   end
 end

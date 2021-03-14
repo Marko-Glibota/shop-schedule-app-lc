@@ -1,5 +1,6 @@
 <h1><%= @shop.name.capitalize %></h1>
 
+<div class="shop-hours align-center">
   <h3>Horaires</h3>
   <% @sorted_schedules.each do |schedule| %>
     <% if closed?(schedule) %>
@@ -12,3 +13,4 @@
       #{format_schedule(schedule.afternoon_opening_hour, schedule.afternoon_closing_hour)}" %></p>
     <% end %>
   <% end %>
+</div>

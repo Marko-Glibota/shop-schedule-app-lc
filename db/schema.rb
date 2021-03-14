@@ -10,28 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_091428) do
-
+ActiveRecord::Schema.define(version: 20_210_314_091_428) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "schedules", force: :cascade do |t|
-    t.integer "weekday"
-    t.time "morning_opening_hour"
-    t.time "morning_closing_hour"
-    t.time "afternoon_opening_hour"
-    t.time "afternoon_closing_hour"
-    t.bigint "shop_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["shop_id"], name: "index_schedules_on_shop_id"
+  create_table 'schedules', force: :cascade do |t|
+    t.integer 'weekday'
+    t.time 'morning_opening_hour'
+    t.time 'morning_closing_hour'
+    t.time 'afternoon_opening_hour'
+    t.time 'afternoon_closing_hour'
+    t.bigint 'shop_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['shop_id'], name: 'index_schedules_on_shop_id'
   end
 
-  create_table "shops", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'shops', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "schedules", "shops"
+  add_foreign_key 'schedules', 'shops'
 end
