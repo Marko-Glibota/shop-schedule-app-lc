@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
-
   it "is not valid without valid attributes" do
     expect(Shop.new).to_not be_valid
   end
