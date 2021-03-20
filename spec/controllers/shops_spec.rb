@@ -5,7 +5,7 @@ RSpec.describe '/shops', type: :request do
   describe "GET #index" do
     it "renders a successful response" do
       get root_path
-      expect(response).to be_successful
+      expect(response).to have_http_status("200")
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe '/shops', type: :request do
         schedule.save
       end
       get shop_path(shop)
-      expect(response).to be_successful
+      expect(response).to have_http_status("200")
     end
   end
 end
